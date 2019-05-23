@@ -11,4 +11,5 @@ RUN apt-get update \
       postfix \
  && sed -i '/Starting services/ a\service postfix start' /assets/wrapper \
  && sed -i '/Starting services/ a\service rsyslog start' /assets/wrapper \
+ && echo 'example.com' > /etc/mailname \
  && cleanimage
