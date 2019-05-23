@@ -7,6 +7,7 @@ RUN chmod +x "/usr/local/bin/cleanimage"
 
 RUN apt-get update \
  && apt-get install -y \
+      rsyslog \
       postfix \
  && sed -i '/Starting services/ a\service postfix start' /assets/wrapper \
  && cleanimage
