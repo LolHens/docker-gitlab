@@ -12,8 +12,9 @@ RUN echo 'postfix postfix/main_mailer_type select Internet Site' | debconf-set-s
       rsyslog \
       postfix \
       mailutils \
+      dnsutils \
  && sed -i '/# Wait for SIGTERM/ i\# Start postfix service.' /assets/wrapper \
  && sed -i '/# Wait for SIGTERM/ i\service rsyslog start' /assets/wrapper \
  && sed -i '/# Wait for SIGTERM/ i\service postfix start' /assets/wrapper \
- && sed -i '/# Wait for SIGTERM/ i\' /assets/wrapper \
+ && sed -i '/# Wait for SIGTERM/ i\\' /assets/wrapper \
  && cleanimage
